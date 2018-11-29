@@ -1,0 +1,8 @@
+module add mpi/openmpi
+
+mpicc -O2 -o project_MPI project_MPI.c
+
+rm -f inputs
+ln -s $1 inputs
+
+time mpirun -np 4 ./project_MPI >result_MPI.txt
